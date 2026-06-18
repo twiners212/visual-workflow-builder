@@ -36,6 +36,12 @@
 - **Neon & Supabase Separation**: Documented that Neon PostgreSQL serves as the primary database storage (via Drizzle ORM) while Supabase Realtime is utilized solely for its peer-to-peer Broadcast Channels during collaboration.
 - **Dummy Execution History Seeding**: Created and executed a database seed script ([create-dummy-workflow.ts](file:///c:/Users/radit/.gemini/antigravity/scratch/visual-workflow/scripts/create-dummy-workflow.ts)) to insert a mockup workflow ("Data Sync & Notification Pipeline") and populated realistic execution runs (success, failed, and running statuses) for testing execution log histories of the user `user1@company.com`.
 
+### Project Housekeeping & GitHub Portfolio Publishing
+- **Portfolio Folder Reorganization**: Moved detailed spec docs (`PRD.md`, `DATABASE.md`, `DESIGN_SYSTEM.md`, `IMPLEMENTATION_PLAN.md`) into a `/docs` subfolder to clean up the root repository.
+- **Dead Code Cleanup**: Deleted the unused `src/proxy.ts` middleware helper and verified that the production compilation built successfully in 4.5s without any issues.
+- **Local Git & .gitignore Tuning**: Initialized a local Git repository, set up standard Next.js `.gitignore` rules, and included `!.env.example` to allow template env files while protecting `.env` and `.env.production.local` secrets.
+- **GitHub Repo Initialization**: Created a public repository (`visual-workflow-builder`) under the user's logged-in GitHub CLI account (`twiners212`), updated it with a description and topics/tags, created an MIT License, and pushed the branch `main` to `origin/main`.
+
 ---
 
 ## 2. Technical Decisions & Safe State
@@ -44,13 +50,15 @@
 - **Component Stability**: Layout shifts triggered by focus changes (like the 2px border expansion on active tabs) were audited and normalized using transparent borders for inactive states.
 - **Built-in Environment Variable Parsing**: Used Node.js's native `--env-file` option to run isolated DB seed scripts without importing third-party libraries like `dotenv`, ensuring simple, light, and secure execution.
 - **Timeline-Realistic Mock Execution Logs**: Populated multi-state executions with simulated timestamp duration gaps and log detail hierarchies to guarantee robust UI rendering test coverage.
+- **Portfolio-Standard Restructuring**: Cleaned the repository root, ensuring all secondary documentation sits in `/docs` and temporary build artifacts/caches are purged.
+- **MIT Licensing**: Embedded a standard MIT license in the root directory to make the codebase open-source and ready for portfolio review.
 
 ---
 
 ## 3. Next Steps (Plan for Tomorrow)
-1. **Milestone 8 — Production Deployment**
-   - Push database migrations to the production environment.
-   - Configure environment variables and deploy to Vercel/InsForge.
+1. **Milestone 8 — Production Deployment (Vercel)**
+   - Link Vercel CI/CD directly to the newly created GitHub repository.
+   - Configure environment variables (`DATABASE_URL`, `BETTER_AUTH_SECRET`, `NEXT_PUBLIC_SUPABASE_URL`, etc.) and deploy.
    - Conduct complete smoke tests on the live endpoint.
 2. **AI Action Implementations**
    - Map AI placeholder node configurations to active backend serverless functions using OpenRouter.
