@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf8ff;
+  --on-background: #191b23;
+  --surface: #faf8ff;
+  --on-surface: #191b23;
+  --surface-bright: #faf8ff;
+  --surface-dim: #d9d9e5;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3fe;
+  --surface-container: #ededf9;
+  --surface-container-high: #e7e7f3;
+  --surface-container-highest: #e1e2ed;
+  --outline: #737686;
+  --outline-variant: #c3c6d7;
+  --on-primary: #ffffff;
+  --primary-fixed: #dbe1ff;
+  --primary-fixed-dim: #b4c5ff;
+  --on-primary-fixed: #00174b;
+  --on-primary-fixed-variant: #003ea8;
+  --secondary: #555f6d;
+  --on-secondary: #ffffff;
+  --secondary-container: #d6e0f1;
+  --on-secondary-container: #596372;
+  --secondary-fixed: #d9e3f4;
+  --secondary-fixed-dim: #bdc7d8;
+  --on-secondary-fixed: #121c28;
+  --on-secondary-fixed-variant: #3e4755;
+  --tertiary: #943700;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #bc4800;
+  --on-tertiary-container: #ffede6;
+  --tertiary-fixed: #ffdbcd;
+  --tertiary-fixed-dim: #ffb596;
+  --on-tertiary-fixed: #360f00;
+  --on-tertiary-fixed-variant: #7d2d00;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --inverse-surface: #2e3039;
+  --inverse-on-surface: #f0f0fb;
+  --inverse-primary: #b4c5ff;
+  --surface-variant: #e1e2ed;
+  --on-surface-variant: #434655;
+  
+  --canvas-bg: #F9FAFB;
+  --canvas-grid-dot: #c3c6d7;
+}
+
+.dark {
+  --background: #09090b;
+  --on-background: #f4f4f5;
+  --surface: #09090b;
+  --on-surface: #f4f4f5;
+  --surface-bright: #18181b;
+  --surface-dim: #09090b;
+  --surface-container-lowest: #020203;
+  --surface-container-low: #121214;
+  --surface-container: #18181b;
+  --surface-container-high: #202024;
+  --surface-container-highest: #27272a;
+  --outline: #71717a;
+  --outline-variant: #27272a;
+  --on-primary: #ffffff;
+  --primary-fixed: #1e293b;
+  --primary-fixed-dim: #334155;
+  --on-primary-fixed: #f8fafc;
+  --on-primary-fixed-variant: #cbd5e1;
+  --secondary: #9ca3af;
+  --on-secondary: #111827;
+  --secondary-container: #1f2937;
+  --on-secondary-container: #f3f4f6;
+  --secondary-fixed: #374151;
+  --secondary-fixed-dim: #4b5563;
+  --on-secondary-fixed: #f9fafb;
+  --on-secondary-fixed-variant: #e5e7eb;
+  --tertiary: #ea580c;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #7c2d12;
+  --on-tertiary-container: #ffedd5;
+  --tertiary-fixed: #451a03;
+  --tertiary-fixed-dim: #78350f;
+  --on-tertiary-fixed: #fff7ed;
+  --on-tertiary-fixed-variant: #ffedd5;
+  --error: #ef4444;
+  --on-error: #ffffff;
+  --error-container: #7f1d1d;
+  --on-error-container: #fee2e2;
+
+  --inverse-surface: #fafafa;
+  --inverse-on-surface: #18181b;
+  --inverse-primary: #3b82f6;
+  --surface-variant: #27272a;
+  --on-surface-variant: #a1a1aa;
+  
+  --canvas-bg: #09090b;
+  --canvas-grid-dot: #27272a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-surface);
+}
+
+.canvas-bg {
+  background-color: var(--canvas-bg);
+  background-image: radial-gradient(var(--canvas-grid-dot) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* React Flow Controls & MiniMap Styling Override */
+.react-flow__controls {
+  border: 1px solid var(--outline-variant) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  background-color: var(--surface-container-lowest) !important;
+}
+
+.react-flow__controls-button {
+  background: var(--surface-container-lowest) !important;
+  color: var(--on-surface) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--outline-variant) !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 150ms ease !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--surface-container-high) !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.react-flow__minimap {
+  background-color: var(--surface-container-lowest) !important;
+  border: 1px solid var(--outline-variant) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+/* --- Dynamic Accent Color Themes --- */
+
+/* LIGHT MODE ACCENT COLORS */
+:root, :root[data-accent="blue"] {
+  --primary: #004ac6;
+  --primary-container: #2563eb;
+  --on-primary-container: #eeefff;
+  --surface-tint: #0053db;
+}
+
+:root[data-accent="purple"] {
+  --primary: #9333ea;
+  --primary-container: #d8b4fe;
+  --on-primary-container: #3b0764;
+  --surface-tint: #7e22ce;
+}
+
+:root[data-accent="green"] {
+  --primary: #16a34a;
+  --primary-container: #bbf7d0;
+  --on-primary-container: #052e16;
+  --surface-tint: #15803d;
+}
+
+:root[data-accent="orange"] {
+  --primary: #ea580c;
+  --primary-container: #ffedd5;
+  --on-primary-container: #7c2d12;
+  --surface-tint: #c2410c;
+}
+
+:root[data-accent="red"] {
+  --primary: #dc2626;
+  --primary-container: #fee2e2;
+  --on-primary-container: #7f1d1d;
+  --surface-tint: #b91c1c;
+}
+
+:root[data-accent="pink"] {
+  --primary: #db2777;
+  --primary-container: #fbcfe8;
+  --on-primary-container: #831843;
+  --surface-tint: #be185d;
+}
+
+:root[data-accent="indigo"] {
+  --primary: #4f46e5;
+  --primary-container: #c7d2fe;
+  --on-primary-container: #312e81;
+  --surface-tint: #4338ca;
+}
+
+:root[data-accent="yellow"] {
+  --primary: #ca8a04;
+  --primary-container: #fef9c3;
+  --on-primary-container: #713f12;
+  --surface-tint: #a16207;
+}
+
+/* DARK MODE ACCENT COLORS */
+.dark, .dark[data-accent="blue"] {
+  --primary: #3b82f6;
+  --primary-container: #1d40a0;
+  --on-primary-container: #d6e2ff;
+  --surface-tint: #3b82f6;
+}
+
+.dark[data-accent="purple"] {
+  --primary: #a855f7;
+  --primary-container: #581c87;
+  --on-primary-container: #f3e8ff;
+  --surface-tint: #a855f7;
+}
+
+.dark[data-accent="green"] {
+  --primary: #4ade80;
+  --primary-container: #14532d;
+  --on-primary-container: #dcfce7;
+  --surface-tint: #4ade80;
+}
+
+.dark[data-accent="orange"] {
+  --primary: #fb923c;
+  --primary-container: #7c2d12;
+  --on-primary-container: #ffedd5;
+  --surface-tint: #fb923c;
+}
+
+.dark[data-accent="red"] {
+  --primary: #f87171;
+  --primary-container: #7f1d1d;
+  --on-primary-container: #fee2e2;
+  --surface-tint: #f87171;
+}
+
+.dark[data-accent="pink"] {
+  --primary: #f472b6;
+  --primary-container: #831843;
+  --on-primary-container: #fce7f3;
+  --surface-tint: #f472b6;
+}
+
+.dark[data-accent="indigo"] {
+  --primary: #818cf8;
+  --primary-container: #312e81;
+  --on-primary-container: #e0e7ff;
+  --surface-tint: #818cf8;
+}
+
+.dark[data-accent="yellow"] {
+  --primary: #facc15;
+  --primary-container: #713f12;
+  --on-primary-container: #fef9c3;
+  --surface-tint: #facc15;
+}
